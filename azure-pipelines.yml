@@ -17,8 +17,15 @@ steps:
     checkLatest: true
 
 - script: |
+    echo 'Current directory'
+    pwd
+    echo 'Files'
+    ls
+    echo 'Change directory...'
     cd $projectPath
+    echo 'NPM Install...'
     npm install
+    echo 'Build project...'
     npm run build
   displayName: npm install and build
   
