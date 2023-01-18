@@ -5,7 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  projectPath: 'my-react-app'
+  projectPath: my-react-app
 
 steps:
 
