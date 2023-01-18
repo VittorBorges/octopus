@@ -12,11 +12,9 @@ stages:
         pool: 
           vmImage: windows-latest
         steps:
-          - task: NodeTool@0
+          - task: UseNode@1
             displayName: Install node.js
             inputs:
-              versionSource: 'spec'
-              versionSpec: '18.x'
               checkLatest: true
 
           - script: |
