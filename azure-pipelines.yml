@@ -22,7 +22,7 @@ steps:
     echo 'Files'
     ls
     echo 'Change directory...'
-    cd $projectPath
+    cd my-react-app
     echo 'Current directory'
     pwd
     echo 'NPM Install...'
