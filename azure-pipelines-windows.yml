@@ -22,15 +22,20 @@ stages:
               command: 'install'
               workingDir: my-react-app
 
-          - script: |
-              echo 'Change directory...'
-              cd my-react-app
-              echo 'Build project...'
-              npm run build
-              echo 'Current directory...'
-              pwd
-              ls
-            displayName: Npm install and build
+          - task: Npm@1
+            inputs:
+              command: 'run build'
+              workingDir: my-react-app
+
+          # - script: |
+          #     echo 'Change directory...'
+          #     cd my-react-app
+          #     echo 'Build project...'
+          #     npm 
+          #     echo 'Current directory...'
+          #     pwd
+          #     ls
+          #   displayName: Npm install and build
 
               # echo 'NPM Install...'
               # npm install -verbose
