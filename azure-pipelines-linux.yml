@@ -1,0 +1,29 @@
+variables:
+  projectPath: my-react-app
+
+stages:
+  - stage: build_artifact
+    displayName: Build artifact
+    jobs:
+      - job: Build
+        pool: 
+          vmImage: ubuntu-latest
+        steps:
+        
+          - script: |
+              cd my-react-app
+              echo 'Install npm packages...'
+              npm install
+            displayName: Npm install packages
+
+          - script: |
+              cd my-react-app
+              echo 'Build project...'
+              npm run build
+            displayName: Npm build
+
+          - task: PublishBuildArtifacts@1
+            displayName: Publish artifact
+            inputs:
+              PathtoPublish: 'my-react-app/build'
+              ArtifactName: 'build-output'
