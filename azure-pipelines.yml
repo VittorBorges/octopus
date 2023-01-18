@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  projectPath: 'my-react-app'
+
 steps:
 
 - task: NodeTool@0
@@ -14,6 +17,7 @@ steps:
     checkLatest: true
 
 - script: |
+    cd $projectPath
     npm install
     npm run build
   displayName: npm install and build
