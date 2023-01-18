@@ -5,8 +5,8 @@ pool:
     vmImage: windows-latest
 
 stages:
-  - stage: build_artifact
-    displayName: Build artifact
+  - stage: build
+    displayName: Build 
     jobs:
       - job: Build
         steps:
