@@ -17,18 +17,22 @@ stages:
             inputs:
               checkLatest: true
 
+          - task: Npm@1
+            inputs:
+              command: 'install'
+
           - script: |
               echo 'Change directory...'
               cd my-react-app
-              echo 'NPM Install...'
-              npm install -verbose
               echo 'Build project...'
               npm run build
               echo 'Current directory...'
               pwd
               ls
             displayName: Npm install and build
-  
+
+  # echo 'NPM Install...'
+              # npm install -verbose
           # - task: PublishBuildArtifacts@1
           #   displayName: Publish artifact
           #   inputs:
