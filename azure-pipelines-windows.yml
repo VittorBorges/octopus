@@ -29,11 +29,10 @@ stages:
               echo 'Current directory...'
               pwd
               ls
-
             displayName: Npm install and build
   
-          - task: PublishBuildArtifacts@1
-            displayName: Publish artifact
-            inputs:
-              PathtoPublish: 'my-react-app/build'
-              ArtifactName: 'build-output'
+          # - task: PublishBuildArtifacts@1
+          #   displayName: Publish artifact
+          #   inputs:
+          #     PathtoPublish: 'my-react-app/build'
+          #     ArtifactName: 'build-output'
