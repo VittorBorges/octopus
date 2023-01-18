@@ -12,15 +12,19 @@ stages:
         pool: 
           vmImage: windows-latest
         steps:
-          - task: UseNode@1
-            displayName: Install node.js
-            inputs:
-              checkLatest: true
+          # - task: UseNode@1
+          #   displayName: Install node.js
+          #   inputs:
+          #     checkLatest: true
 
           # - task: Npm@1
           #   inputs:
           #     command: 'install'
           #     workingDir: my-react-app
+
+          - script: |
+              npm -v
+            displayName: Npm version
 
           - script: |
               cd my-react-app
