@@ -1,6 +1,3 @@
-# trigger:
-# - main
-
 variables:
   projectPath: my-react-app
 
@@ -12,6 +9,12 @@ stages:
         pool: 
           vmImage: windows-latest
         steps:
+        
+          - script: |
+              cd my-react-app
+              echo 'Install npm packages...'
+              npm install
+            displayName: Npm install packages
 
           - script: |
               cd my-react-app
