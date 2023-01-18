@@ -1,5 +1,5 @@
-trigger:
-- main
+# trigger:
+# - main
 
 variables:
   projectPath: my-react-app
@@ -26,6 +26,9 @@ stages:
               npm install
               echo 'Build project...'
               npm run build
+              echo 'Current directory...'
+              pwd
+
             displayName: Npm install and build
   
           - task: PublishBuildArtifacts@1
