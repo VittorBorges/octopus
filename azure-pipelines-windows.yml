@@ -28,6 +28,7 @@ stages:
               npm run build
               echo 'Current directory...'
               pwd
+              ls
 
             displayName: Npm install and build
   
