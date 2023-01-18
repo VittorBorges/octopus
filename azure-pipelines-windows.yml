@@ -20,6 +20,7 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
+              workingDir: my-react-app
 
           - script: |
               echo 'Change directory...'
@@ -31,7 +32,7 @@ stages:
               ls
             displayName: Npm install and build
 
-  # echo 'NPM Install...'
+              # echo 'NPM Install...'
               # npm install -verbose
           # - task: PublishBuildArtifacts@1
           #   displayName: Publish artifact
