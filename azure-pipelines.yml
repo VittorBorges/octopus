@@ -1,37 +1,41 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
-
 variables:
   projectPath: my-react-app
 
-steps:
+stages:
+  - stage: build_artifact
+    displayName: Build artifact
+    jobs:
+      - job: Build
+        pool: 
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            displayName: Install node.js
+            inputs:
+              versionSource: 'spec'
+              versionSpec: '18.x'
+              checkLatest: true
 
-- task: NodeTool@0
-  displayName: Install node.js
-  inputs:
-    versionSource: 'spec'
-    versionSpec: '18.x'
-    checkLatest: true
-
-- script: |
-    echo 'Current directory'
-    pwd
-    echo 'Files'
-    ls
-    echo 'Change directory...'
-    cd my-react-app
-    echo 'Current directory'
-    pwd
-    echo 'NPM Install...'
-    npm install
-    echo 'Build project...'
-    npm run build
-  displayName: npm install and build
+          - script: |
+              echo 'Current directory'
+              pwd
+              echo 'Files'
+              ls
+              echo 'Change directory...'
+              cd my-react-app
+              echo 'Current directory'
+              pwd
+              echo 'NPM Install...'
+              npm install
+              echo 'Build project...'
+              npm run build
+            displayName: Npm install and build
   
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'my-react-app/build'
-    ArtifactName: 'build-output'
+          - task: PublishBuildArtifacts@1
+            displayName: Publish artifact
+            inputs:
+              PathtoPublish: 'my-react-app/build'
+              ArtifactName: 'build-output'
