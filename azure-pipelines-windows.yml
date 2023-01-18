@@ -21,7 +21,7 @@ stages:
               echo 'Change directory...'
               cd my-react-app
               echo 'NPM Install...'
-              # npm install -verbose
+              npm install -verbose
               echo 'Build project...'
               npm run build
               echo 'Current directory...'
