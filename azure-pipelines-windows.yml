@@ -23,6 +23,11 @@ stages:
               npm run build
             displayName: Npm build
 
+  - stage: build_artifact
+    displayName: Build artifact
+    jobs:
+      - job: Build_artifact
+        steps:    
           - task: PublishBuildArtifacts@1
             displayName: Publish artifact
             inputs:
