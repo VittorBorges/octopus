@@ -33,5 +33,5 @@ steps:
   
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'my-react-app/dist'
+    PathtoPublish: 'my-react-app/build'
     ArtifactName: 'build-output'
