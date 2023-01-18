@@ -12,25 +12,6 @@ stages:
         pool: 
           vmImage: windows-latest
         steps:
-          # - task: UseNode@1
-          #   displayName: Install node.js
-          #   inputs:
-          #     checkLatest: true
-
-          # - task: Npm@1
-          #   inputs:
-          #     command: 'install'
-          #     workingDir: my-react-app
-
-          - script: |
-              npm -v
-            displayName: Npm version
-
-          - script: |
-              cd my-react-app
-              echo 'npm install...'
-              npm install
-            displayName: Npm install 
 
           - script: |
               cd my-react-app
@@ -38,10 +19,8 @@ stages:
               npm run build
             displayName: Npm build
 
-              # echo 'NPM Install...'
-              # npm install -verbose
-          # - task: PublishBuildArtifacts@1
-          #   displayName: Publish artifact
-          #   inputs:
-          #     PathtoPublish: 'my-react-app/build'
-          #     ArtifactName: 'build-output'
+          - task: PublishBuildArtifacts@1
+            displayName: Publish artifact
+            inputs:
+              PathtoPublish: 'my-react-app/build'
+              ArtifactName: 'build-output'
