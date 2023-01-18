@@ -20,14 +20,8 @@ stages:
               checkLatest: true
 
           - script: |
-              echo 'Current directory'
-              pwd
-              echo 'Files'
-              ls
               echo 'Change directory...'
               cd my-react-app
-              echo 'Current directory'
-              pwd
               echo 'NPM Install...'
               npm install
               echo 'Build project...'
